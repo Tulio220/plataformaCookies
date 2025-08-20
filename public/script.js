@@ -1234,6 +1234,7 @@ async function atualizarDashboard() {
     document.getElementById(
       "custosTotais"
     ).textContent = `R$ ${dados.custosTotais.toFixed(2).replace(".", ",")}`;
+    document.getElementById("lucroTotal").textContent = `R$ ${(dados.vendasTotais - dados.custosTotais).toFixed(2).replace(".", ",")}`;
   } catch (err) {
     console.error("Erro ao carregar dashboard:", err);
     document.getElementById("vendasTotais").textContent = "R$ 0,00";
