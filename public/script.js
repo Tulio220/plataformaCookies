@@ -1468,7 +1468,7 @@ async function atualizarCardsLucros() {
         lucrosMensais.length
       : 0;
 
-  document.getElementById("lucroTotal").textContent = `R$ ${lucroTotal
+  document.getElementById("lucroTotalPainel").textContent = `R$ ${lucroTotal
     .toFixed(2)
     .replace(".", ",")}`;
   document.getElementById("lucroMedioMensal").textContent = `R$ ${mediaMensal
