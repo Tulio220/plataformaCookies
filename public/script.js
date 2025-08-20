@@ -46,7 +46,9 @@ function configurarEventos() {
         const secao = this.getAttribute("data-section");
         carregarSecao(secao);
         // Atualiza destaque
-        bottomNav.querySelectorAll(".nav-btn").forEach((b) => b.classList.remove("active"));
+        bottomNav
+          .querySelectorAll(".nav-btn")
+          .forEach((b) => b.classList.remove("active"));
         this.classList.add("active");
       });
     });
@@ -164,10 +166,14 @@ async function preencherTabelaPedidos() {
                 pedido.status
               )}</span></td>
             <td>
-                <button class="btn btn-secondary" onclick="editarPedido(${pedido.id})" title="Editar">
+                <button class="btn btn-secondary" onclick="editarPedido(${
+                  pedido.id
+                })" title="Editar">
                     <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" onclick="excluirPedido(${pedido.id})" title="Excluir">
+                <button class="btn btn-danger" onclick="excluirPedido(${
+                  pedido.id
+                })" title="Excluir">
                     <i class="fas fa-trash"></i>
                 </button>
             </td>
@@ -187,11 +193,19 @@ async function preencherTabelaPedidos() {
           <div><b>Cliente:</b> ${pedido.cliente}</div>
           <div><b>Produto:</b> ${pedido.produto}</div>
           <div><b>Quantidade:</b> ${pedido.quantidade} unid.</div>
-          <div><b>Valor:</b> R$ ${parseFloat(pedido.valor).toFixed(2).replace(".", ",")}</div>
-          <div><span class="status-badge ${pedido.status}">${capitalizar(pedido.status)}</span></div>
+          <div><b>Valor:</b> R$ ${parseFloat(pedido.valor)
+            .toFixed(2)
+            .replace(".", ",")}</div>
+          <div><span class="status-badge ${pedido.status}">${capitalizar(
+                pedido.status
+              )}</span></div>
           <div style="display:flex; gap:0.5rem;">
-            <button class="btn btn-secondary" onclick="editarPedido(${pedido.id})" title="Editar"><i class="fas fa-edit"></i> Editar</button>
-            <button class="btn btn-danger" onclick="excluirPedido(${pedido.id})" title="Excluir"><i class="fas fa-trash"></i> Excluir</button>
+            <button class="btn btn-secondary" onclick="editarPedido(${
+              pedido.id
+            })" title="Editar"><i class="fas fa-edit"></i> Editar</button>
+            <button class="btn btn-danger" onclick="excluirPedido(${
+              pedido.id
+            })" title="Excluir"><i class="fas fa-trash"></i> Excluir</button>
           </div>
         </div>
       `
@@ -233,10 +247,14 @@ async function preencherTabelaProdutos() {
                 produto.status
               )}</span></td>
             <td>
-                <button class="btn btn-secondary" onclick="editarProduto(${produto.id})" title="Editar">
+                <button class="btn btn-secondary" onclick="editarProduto(${
+                  produto.id
+                })" title="Editar">
                     <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" onclick="excluirProduto(${produto.id})" title="Excluir">
+                <button class="btn btn-danger" onclick="excluirProduto(${
+                  produto.id
+                })" title="Excluir">
                     <i class="fas fa-trash"></i>
                 </button>
             </td>
@@ -255,12 +273,20 @@ async function preencherTabelaProdutos() {
           <div><b>ID:</b> #${produto.id.toString().padStart(3, "0")}</div>
           <div><b>Nome:</b> ${produto.nome}</div>
           <div><b>Categoria:</b> ${produto.categoria}</div>
-          <div><b>Preço:</b> R$ ${parseFloat(produto.preco).toFixed(2).replace(".", ",")}</div>
+          <div><b>Preço:</b> R$ ${parseFloat(produto.preco)
+            .toFixed(2)
+            .replace(".", ",")}</div>
           <div><b>Estoque:</b> ${produto.estoque} unid.</div>
-          <div><span class="status-badge ${produto.status}">${capitalizar(produto.status)}</span></div>
+          <div><span class="status-badge ${produto.status}">${capitalizar(
+                produto.status
+              )}</span></div>
           <div style="display:flex; gap:0.5rem;">
-            <button class="btn btn-secondary" onclick="editarProduto(${produto.id})" title="Editar"><i class="fas fa-edit"></i> Editar</button>
-            <button class="btn btn-danger" onclick="excluirProduto(${produto.id})" title="Excluir"><i class="fas fa-trash"></i> Excluir</button>
+            <button class="btn btn-secondary" onclick="editarProduto(${
+              produto.id
+            })" title="Editar"><i class="fas fa-edit"></i> Editar</button>
+            <button class="btn btn-danger" onclick="excluirProduto(${
+              produto.id
+            })" title="Excluir"><i class="fas fa-trash"></i> Excluir</button>
           </div>
         </div>
       `
@@ -300,10 +326,14 @@ async function preencherTabelaCustos() {
                 custo.tipo
               )}</span></td>
             <td>
-                <button class="btn btn-secondary" onclick="editarCusto(${custo.id})" title="Editar">
+                <button class="btn btn-secondary" onclick="editarCusto(${
+                  custo.id
+                })" title="Editar">
                     <i class="fas fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" onclick="excluirCusto(${custo.id})" title="Excluir">
+                <button class="btn btn-danger" onclick="excluirCusto(${
+                  custo.id
+                })" title="Excluir">
                     <i class="fas fa-trash"></i>
                 </button>
             </td>
@@ -322,12 +352,20 @@ async function preencherTabelaCustos() {
           <div><b>ID:</b> #${custo.id.toString().padStart(3, "0")}</div>
           <div><b>Descrição:</b> ${custo.descricao}</div>
           <div><b>Categoria:</b> ${custo.categoria}</div>
-          <div><b>Valor:</b> R$ ${parseFloat(custo.valor).toFixed(2).replace(".", ",")}</div>
+          <div><b>Valor:</b> R$ ${parseFloat(custo.valor)
+            .toFixed(2)
+            .replace(".", ",")}</div>
           <div><b>Data:</b> ${formatarData(custo.data)}</div>
-          <div><span class="status-badge ${custo.tipo}">${capitalizar(custo.tipo)}</span></div>
+          <div><span class="status-badge ${custo.tipo}">${capitalizar(
+                custo.tipo
+              )}</span></div>
           <div style="display:flex; gap:0.5rem;">
-            <button class="btn btn-secondary" onclick="editarCusto(${custo.id})" title="Editar"><i class="fas fa-edit"></i> Editar</button>
-            <button class="btn btn-danger" onclick="excluirCusto(${custo.id})" title="Excluir"><i class="fas fa-trash"></i> Excluir</button>
+            <button class="btn btn-secondary" onclick="editarCusto(${
+              custo.id
+            })" title="Editar"><i class="fas fa-edit"></i> Editar</button>
+            <button class="btn btn-danger" onclick="excluirCusto(${
+              custo.id
+            })" title="Excluir"><i class="fas fa-trash"></i> Excluir</button>
           </div>
         </div>
       `
@@ -383,7 +421,7 @@ async function calcularValor(produtoSelect, quantidadeInput, valorInput) {
       }
       const produtos = await response.json();
       // Busca o produto pelo nome exato
-      const produto = produtos.find(p => p.nome === produtoNome);
+      const produto = produtos.find((p) => p.nome === produtoNome);
       if (produto) {
         const preco = parseFloat(produto.preco);
         const quantidade = parseInt(quantidadeInput.value);
@@ -863,9 +901,9 @@ async function salvarItemModal() {
 // ========== GRÁFICOS ==========
 async function atualizarGraficos() {
   await criarGraficoVendas();
-  await criarGraficoLucros();
   await criarGraficoProdutos();
   await criarGraficoTendencia();
+  await criarGraficoLucros();
 }
 
 async function inicializarGraficos() {
@@ -963,6 +1001,7 @@ async function criarGraficoVendas() {
   }
 }
 
+// Ajuste em criarGraficoLucros (usa dados mensais reais)
 async function criarGraficoLucros() {
   const ctx = document.getElementById("lucrosChart");
   if (!ctx) return;
@@ -971,82 +1010,34 @@ async function criarGraficoLucros() {
     window.lucrosChart.destroy();
   }
 
-  try {
-    const response = await fetch(`${API_URL}/lucros`);
-    if (!response.ok) {
-      throw new Error(`Erro HTTP: ${response.status}`);
-    }
-    const dados = await response.json();
-    const labels = dados.map((d) => d.mes);
-    const valores = dados.map((d) => d.valor);
+  const dados = await calcularLucros("mensal");
+  const labels = dados.map((d) => d.mensal || "Sem dados");
+  const valores = dados.map((d) => d.valor);
 
-    window.lucrosChart = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: labels.length > 0 ? labels : ["Sem dados"],
-        datasets: [
-          {
-            label: "Lucro Mensal (R$)",
-            data: valores.length > 0 ? valores : [0],
-            backgroundColor: "hsl(25, 35%, 25%)",
-            borderRadius: 8,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            display: false,
-          },
+  window.lucrosChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: labels.length > 0 ? labels : ["Sem dados"],
+      datasets: [
+        {
+          label: "Lucro Mensal (R$)",
+          data: valores.length > 0 ? valores : [0],
+          backgroundColor: "hsl(25, 35%, 25%)",
+          borderRadius: 8,
         },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              callback: function (value) {
-                return "R$ " + value;
-              },
-            },
-          },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { callback: (value) => "R$ " + value },
         },
       },
-    });
-  } catch (err) {
-    console.error("Erro ao carregar dados de lucros:", err);
-    window.lucrosChart = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: ["Sem dados"],
-        datasets: [
-          {
-            label: "Lucro Mensal (R$)",
-            data: [0],
-            backgroundColor: "hsl(25, 35%, 25%)",
-            borderRadius: 8,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            display: false,
-          },
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              callback: function (value) {
-                return "R$ " + value;
-              },
-            },
-          },
-        },
-      },
-    });
-  }
+    },
+  });
 }
 
 async function criarGraficoProdutos() {
@@ -1234,13 +1225,97 @@ async function atualizarDashboard() {
     document.getElementById(
       "custosTotais"
     ).textContent = `R$ ${dados.custosTotais.toFixed(2).replace(".", ",")}`;
-    document.getElementById("lucroTotal").textContent = `R$ ${(dados.vendasTotais - dados.custosTotais).toFixed(2).replace(".", ",")}`;
+
+    const lucroTotal = await calcularLucros("total");
+    document.getElementById("lucroTotal").textContent = `R$ ${lucroTotal
+      .toFixed(2)
+      .replace(".", ",")}`;
+
   } catch (err) {
     console.error("Erro ao carregar dashboard:", err);
     document.getElementById("vendasTotais").textContent = "R$ 0,00";
     document.getElementById("pedidosTotais").textContent = "0";
     document.getElementById("produtosEstoque").textContent = "0";
     document.getElementById("custosTotais").textContent = "R$ 0,00";
+    document.getElementById("lucroTotal").textContent = "R$ 0,00";
+  }
+}
+
+// Função auxiliar para calcular lucros reais (vendas - custos)
+async function calcularLucros(periodo = "total") {
+  // periodo: 'total', 'mensal', 'anual'
+  try {
+    const [resPedidos, resCustos] = await Promise.all([
+      fetch(`${API_URL}/pedidos`),
+      fetch(`${API_URL}/custos`),
+    ]);
+    if (!resPedidos.ok || !resCustos.ok) {
+      throw new Error("Erro ao buscar dados de vendas/custos");
+    }
+    const pedidos = await resPedidos.json();
+    const custos = await resCustos.json();
+
+    // Filtrar vendas: apenas pedidos 'concluido' (ignorar pendente/cancelado)
+    const vendasFiltradas = pedidos.filter((p) => p.status === "concluido");
+
+    // Função para extrair mês/ano de uma data (assuma formato YYYY-MM-DD)
+    const getMes = (data) => (data ? data.slice(0, 7) : null); // 'YYYY-MM'
+    const getAno = (data) => (data ? data.slice(0, 4) : null); // 'YYYY'
+
+    // Agrupar vendas e custos
+    let vendasAgrupadas = {};
+    let custosAgrupados = {};
+
+    vendasFiltradas.forEach((p) => {
+      const chave =
+        periodo === "mensal"
+          ? getMes(p.data)
+          : periodo === "anual"
+          ? getAno(p.data)
+          : "total";
+      if (chave) {
+        vendasAgrupadas[chave] =
+          (vendasAgrupadas[chave] || 0) + parseFloat(p.valor);
+      }
+    });
+
+    custos.forEach((c) => {
+      const chave =
+        periodo === "mensal"
+          ? getMes(c.data)
+          : periodo === "anual"
+          ? getAno(c.data)
+          : "total";
+      if (chave) {
+        custosAgrupados[chave] =
+          (custosAgrupados[chave] || 0) + parseFloat(c.valor);
+      }
+    });
+
+    // Calcular lucros por chave
+    const lucros = {};
+    const chaves = new Set([
+      ...Object.keys(vendasAgrupadas),
+      ...Object.keys(custosAgrupados),
+    ]);
+    chaves.forEach((chave) => {
+      const vendas = vendasAgrupadas[chave] || 0;
+      const custos = custosAgrupados[chave] || 0;
+      lucros[chave] = vendas - custos;
+    });
+
+    // Para 'total', retorne um número; para outros, array de {periodo: chave, valor: lucro}
+    if (periodo === "total") {
+      return lucros["total"] || 0;
+    } else {
+      return Object.entries(lucros).map(([chave, valor]) => ({
+        [periodo]: chave,
+        valor,
+      }));
+    }
+  } catch (err) {
+    console.error("Erro ao calcular lucros:", err);
+    return periodo === "total" ? 0 : [];
   }
 }
 
@@ -1383,25 +1458,22 @@ async function atualizarCardsCustos() {
   }
 }
 
+// Ajuste em atualizarCardsLucros (usa cálculos reais)
 async function atualizarCardsLucros() {
-  try {
-    const responseLucros = await fetch(`${API_URL}/lucros`);
-    if (!responseLucros.ok)
-      throw new Error(`Erro HTTP: ${responseLucros.status}`);
-    const lucros = await responseLucros.json();
-    const totalLucro = lucros.reduce((sum, l) => sum + parseFloat(l.valor), 0);
-    document.getElementById("lucroTotal").textContent = `R$ ${totalLucro
-      .toFixed(2)
-      .replace(".", ",")}`;
-    const mediaMensal = lucros.length > 0 ? totalLucro / lucros.length : 0;
-    document.getElementById("lucroMedioMensal").textContent = `R$ ${mediaMensal
-      .toFixed(2)
-      .replace(".", ",")}`;
-  } catch (err) {
-    console.error("Erro ao carregar cards de lucros:", err);
-    document.getElementById("lucroTotal").textContent = "R$ 0,00";
-    document.getElementById("lucroMedioMensal").textContent = "R$ 0,00";
-  }
+  const lucroTotal = await calcularLucros("total");
+  const lucrosMensais = await calcularLucros("mensal");
+  const mediaMensal =
+    lucrosMensais.length > 0
+      ? lucrosMensais.reduce((sum, l) => sum + l.valor, 0) /
+        lucrosMensais.length
+      : 0;
+
+  document.getElementById("lucroTotal").textContent = `R$ ${lucroTotal
+    .toFixed(2)
+    .replace(".", ",")}`;
+  document.getElementById("lucroMedioMensal").textContent = `R$ ${mediaMensal
+    .toFixed(2)
+    .replace(".", ",")}`;
 }
 
 async function atualizarCardsAnalises() {
